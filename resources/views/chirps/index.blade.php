@@ -91,6 +91,7 @@
                     className: 'text-center align-middle',
                     render: function(data, type, row) {
                         return `
+                        @can('users.edit')
                         <button onclick="verRegistro(${data.id})" class="btn btn-primary custom-btn">
                             <svg class="h-8 w-8 text-gray-500" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z"/>
@@ -99,6 +100,7 @@
                                 <line x1="16" y1="5" x2="19" y2="8" />
                             </svg>
                         </button>
+                        @endcan
                         <button onclick="editarRegistro(${data.id})" class="btn btn-warning custom-btn">
                             <svg class="h-8 w-8 text-gray-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z"/>
@@ -107,6 +109,7 @@
                                 <path d="M2 12l1.5 -2a11 11 0 0 1 17 0l1.5 2" />
                             </svg>
                         </button>
+                        @can('users.destroy')
                         <button onclick="eliminarRegistro(${data.id})" class="btn btn-danger custom-btn">
                             <svg class="h-8 w-8 text-gray-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z"/>
@@ -117,6 +120,7 @@
                                 <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
                             </svg>
                         </button>
+                        @endcan
                         `;
                     }
                 }

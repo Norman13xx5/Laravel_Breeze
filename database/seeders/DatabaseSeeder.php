@@ -12,11 +12,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        //Roles y Permisos
+        $this->call(RoleSeede::class);
+        //Usuarios base
+        $this->call(UserSeed::class);
+
+        \App\Models\User::factory(10)->create()->each(function ($user) {
+            $user->assignRole('developer');
+        });
 
         // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
+        //     'name' => 'Brayan Guillermo Diaz Martinez',
+        //     'email' => 'brahyan.com@gmail.com',
         // ]);
     }
 }

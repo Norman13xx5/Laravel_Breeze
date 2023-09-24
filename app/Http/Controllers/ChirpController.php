@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class ChirpController extends Controller
 {
+    public function __construct()
+    {
+        // Solo los usuarios con permisos de index podrá ejecutar la función index
+        $this->middleware('can:users.index')->only('index');
+
+        // Solo los usuarios con permisos de edit podrán ejecutar la funcion edit & update
+        $this->middleware('can:users.edit')->only('edit', 'update');
+    }
     /**
      * Display a listing of the resource.
      */
