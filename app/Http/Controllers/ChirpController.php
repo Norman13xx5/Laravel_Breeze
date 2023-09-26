@@ -47,7 +47,9 @@ class ChirpController extends Controller
             'animal' => $request->get('animal'),
             'userIdC' => auth()->id()
         ]); 
-        return to_route('chirps.index')->with('success', 'El registro se ha insertado con éxito');
+        session()->flash('status', 'profile-updated');
+        return redirect()->route('chirps.index');
+        // return to_route('chirps.index')->with('success', 'El registro se ha insertado con éxito');
     }
 
     /**
